@@ -8,7 +8,7 @@ import java.util.Set;
  * @author : ylj
  * create at:  2021/2/17
  */
-public class JedisDemo {
+public class TestKey {
     public static void main(String[] args) {
         Jedis jedis = new Jedis("121.4.53.107",6379);
         jedis.auth("Yang123456.");
