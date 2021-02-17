@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: 121.4.53.107
+    port: 6379
+    password: Yang123456.
