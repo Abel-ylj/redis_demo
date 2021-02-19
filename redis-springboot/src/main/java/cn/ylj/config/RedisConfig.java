@@ -3,8 +3,6 @@ package cn.ylj.config;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.nashorn.internal.runtime.Property;
-import jdk.nashorn.internal.runtime.PropertyAccess;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -18,6 +16,12 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  */
 @Configuration
 public class RedisConfig {
+
+//    @Value("${spring.redis.sentinel.nodes}")
+//    private String redisNodes;
+//
+//    @Value("${spring.redis.sentinel.master}")
+//    private String master;
 
     //自定义redisTemplate
     @Bean
@@ -45,4 +49,18 @@ public class RedisConfig {
         template.afterPropertiesSet();
         return template;
     }
+
+//    @Bean
+//    public RedisSentinelConfiguration redisSentinelConfiguration(){
+//        RedisSentinelConfiguration configuration = new RedisSentinelConfiguration();
+//        String[] host = redisNodes.split(",");
+//        for(String redisHost : host){
+//            String[] item = redisHost.split(":");
+//            String ip = item[0];
+//            String port = item[1];
+//            configuration.addSentinel(new RedisNode(ip, Integer.parseInt(port)));
+//        }
+//        configuration.setMaster(master);
+//        return configuration;
+//    }
 }

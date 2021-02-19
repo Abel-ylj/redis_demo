@@ -1,5 +1,15 @@
 spring:
   redis:
     host: 121.4.53.107
-    port: 6379
-    password: Yang123456.
+    port: 6381
+    database: 0       # 数据库
+    timeout: 5000     # 连接超时时间 ms
+    sentinel:
+      master: mymaster # 哨兵监控的redis master名字
+      nodes: 121.4.53.107:26379,121.4.53.107:26380,121.4.53.107:26381  # 1主2从3哨兵
+      lettuce:        # springboot redis的连接池为lettuce，高并发下更安全
+        pool:
+          max-idle: 10
+          max-active: 20
+          min-idle: 5
+          max-wait: 10000ms
